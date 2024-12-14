@@ -7,12 +7,17 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${fileDirname}\\*.c",
                 "-o",
                 "${fileDirname}\\myTetris.exe",
                 "-lraylib",
                 "-lgdi32",
                 "-lwinmm",
+                //"-O3",           // Highest optimization level
+                //"-march=native", // CPU-specific optimizations
+                //"-flto",         // Link-time optimization
+                "-Wall",         // Enable all warnings
+                "-Wextra",       // Enable extra warnings
             ],
             "options": {
                 "cwd": "${fileDirname}"
