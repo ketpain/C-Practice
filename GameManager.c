@@ -4,30 +4,41 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int gridX = {0};
-int gridY = {0};
-int **grid = {0};
+typedef struct Board
+{
+    int width;
+    int height;
+    int **board;
+} Board;
 
 void InitializeBoard()
 {
-    gridX = 10;
-    gridY = 20;
-    grid = (int **)malloc(gridX * sizeof(int *));
-    int usedMemoryPointers = 8*gridX;
-
-    for (int i = 0; i < gridX; i++)
+    Board board;
+    board.width = 10;
+    board.height = 20;
+    board.board = calloc(board.height * sizeof(int *), sizeof(int *));
+    for (int i = 0; i < board.height; i++)
     {
-        grid[i] = (int *)calloc(gridY, sizeof(int));
+        board.board[i] = calloc(board.width * sizeof(int), sizeof(int));
     }
-    int usedMemoryElements = 4*gridX*gridY;
 
-    for (int i = 0; i < gridX; i++)
+    printf("Board initialized\n");
+    for(int i = 0; i < board.height; i++)
     {
-        for (int j = 0; j < gridY; j++)
+        for(int j = 0; j < board.width; j++)
         {
-            // Print the value of the grid at the current position and the position itself
-            printf("X:%d Y:%d = %d\n", i+1, j+1, grid[i][j]);
+            if(j == 5 && i == 5)
+            {
+                board.board[i][j] = 69;
+            }
+            printf("%d ", board.board[i][j]);
         }
+        printf("\n");
     }
-
+    for (int i = 0; i < board.height; i++)
+    {
+        free(board.board[i]);
+    }
+    free(board.board);
+    printf("Board freed\n");
 }
