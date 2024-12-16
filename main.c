@@ -2,15 +2,16 @@
 #include <raylib.h>
 #include <raymath.h>
 #include "GameManager.h"
+#include "Board.h"
 
 int screenWidth  = 1920;
 int screenHeight = 1080;
 
 int main()
 {
-
     InitWindow(screenWidth, screenHeight, "My Program");
     SetTargetFPS(60);
+    InitializeBoard();
 
     while (!WindowShouldClose())
     {
