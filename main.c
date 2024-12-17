@@ -11,7 +11,7 @@ int main()
 {
     InitWindow(screenWidth, screenHeight, "My Program");
     SetTargetFPS(60);
-    InitializeBoard();
+    Board board = InitializeBoard();
 
     while (!WindowShouldClose())
     {
@@ -24,7 +24,8 @@ int main()
         EndDrawing();
     }
 
-    InitializeBoard();
+    FreeBoard(board);
+    CloseWindow();
 
     return 0;
 }
