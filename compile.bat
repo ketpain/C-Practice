@@ -1,1 +1,1 @@
-clang *.c -o comp.exe -lraylib -lgdi32 -lwinmm
+clang *.c -o myTetris.exe -lraylib -lgdi32 -lwinmm

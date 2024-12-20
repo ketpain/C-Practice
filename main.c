@@ -3,6 +3,7 @@
 #include <raymath.h>
 #include "GameManager.h"
 #include "Board.h"
+#include "Piece.h"
 
 int screenWidth  = 1920;
 int screenHeight = 1080;
@@ -11,6 +12,7 @@ int main()
 {
     InitWindow(screenWidth, screenHeight, "My Program");
     SetTargetFPS(60);
+
     Board board = InitializeBoard();
 
     while (!WindowShouldClose())
@@ -24,8 +26,10 @@ int main()
         EndDrawing();
     }
 
-    FreeBoard(board);
     CloseWindow();
+    PrintPiece();
+    DebugDrawBoard(board);
 
+    FreeBoard(board);
     return 0;
 }
