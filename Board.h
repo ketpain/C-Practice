@@ -1,11 +1,13 @@
+#ifndef BOARD_H
+#define BOARD_H
+
 #include <stdint.h>
 
-typedef struct Board{
-    int width;
-    int height;
-    uint16_t* board; // Each row is represented by a 16-bit integer
-} Board;
+void Board_InitializeBoard(uint8_t *board);
+void Board_PrintBoard();
+void Board_SetBit(uint8_t *board, int index);
+void Board_ClearBit(uint8_t *board, int index);
+void Board_ToggleBit(uint8_t *board, int index);
+int  Board_GetBit(uint8_t *board, int index);
 
-void DebugDrawBoard(Board board);
-void FreeBoard(Board board);
-Board InitializeBoard();
+#endif

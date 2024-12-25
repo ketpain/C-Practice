@@ -1,2 +1,7 @@
+#ifndef PIECE_H
+#define PIECE_H
 
-void PrintPiece();
+void Piece_PrintPiece();
+void Piece_InitializePiece();
+
+#endif

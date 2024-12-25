@@ -10,10 +10,12 @@ int screenHeight = 1080;
 
 int main()
 {
+
+    Board_PrintBoard();
+
+    /*
     InitWindow(screenWidth, screenHeight, "My Program");
     SetTargetFPS(60);
-
-    Board board = InitializeBoard();
 
     while (!WindowShouldClose())
     {
@@ -27,9 +29,6 @@ int main()
     }
 
     CloseWindow();
-    PrintPiece();
-    DebugDrawBoard(board);
-
-    FreeBoard(board);
+    */
     return 0;
 }
