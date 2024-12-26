@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <raylib.h>
 #include <raymath.h>
@@ -10,8 +11,9 @@ int screenHeight = 1080;
 
 int main()
 {
-
-    Board_PrintBoard();
+    uint8_t board[BOARD_SIZE];
+    Board_InitializeBoard(board);
+    
 
     /*
     InitWindow(screenWidth, screenHeight, "My Program");

@@ -1,14 +1,5 @@
 #include <stdio.h>
-#include <stdint.h>
-#include <raylib.h>
-#include <raymath.h>
-#include "GameManager.h"
 #include "Board.h"
-#include "Debug.h"
-
-#define BOARD_SIZE 200
-
-uint8_t board[BOARD_SIZE / 8]; // 200 bits to represent the 10x20 grid
 
 // Function to initialize the board to all zeros
 void Board_InitializeBoard(uint8_t *board)
@@ -17,6 +8,7 @@ void Board_InitializeBoard(uint8_t *board)
     {
         board[i] = 0;
     }
+
 }
 
 // Function to set a specific bit in the board array
@@ -32,6 +24,7 @@ void Board_SetBit(uint8_t *board, int index)
 }
 
 // Function to clear a specific bit in the board array
+// @param index: There are 200 bits in the board array, so index should be between 0 and 199
 void Board_ClearBit(uint8_t *board, int index)
 {
     // Calculate which byte the bit is in and clear the specific bit within that byte
@@ -43,6 +36,8 @@ void Board_ClearBit(uint8_t *board, int index)
     // &=: Clears the bit to 0 using bitwise AND with the inverted mask
 }
 
+// Function to toggle a specific bit in the board array
+// @param index: There are 200 bits in the board array, so index should be between 0 and 199
 void Board_ToggleBit(uint8_t *board, int index)
 {
     // Calculate which byte the bit is in and toggle the specific bit within that byte
@@ -54,6 +49,7 @@ void Board_ToggleBit(uint8_t *board, int index)
 }
 
 // Function to get the value of a specific bit in the board array
+// @param index: There are 200 bits in the board array, so index should be between 0 and 199
 int Board_GetBit(uint8_t *board, int index)
 {
     // Calculate which byte the bit is in and get the value of the specific bit within that byte
@@ -64,7 +60,7 @@ int Board_GetBit(uint8_t *board, int index)
     // & 1: Masks all bits except the least significant bit to get the value of the specific bit
 }
 
-void Board_PrintBoard()
+void Board_PrintBoard(uint8_t *board)
 {
     for (int row = 0; row < 20; row++) // 20 rows
     {
