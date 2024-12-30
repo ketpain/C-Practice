@@ -3,11 +3,11 @@
 
 void Board_Print(Board board)
 {
-    for (int i = 0; i < 20; i++)
+    for (int row = 0; row < 20; row++)
     {
-        for (int j = 0; j < 10; j++)
+        for (int col = 0; col < 10; col++)
         {
-            printf("0%c", board.board[j][i]);
+            printf("%d", board.board[col][row]);
         }
         printf("\n");
     }
